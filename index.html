@@ -5,21 +5,11 @@
     <title>Cat Clicker</title>
 </head>
 <body>
-    <ul id="cat-list"></ul>
-<!--    <div id="cat">
-
-        <h2 id="cat-name"></h2>
-        <div id="cat-count"></div>
-        <img id="cat-img" src="" alt="cute cat">
-
-		</div>
-		--> 
-
 
     <div data-bind="with: currentCat">
 
         <h2 data-bind="text: name"></h2>
-		<span data-bind="text: clickCountStagesFunc">t1: </span>
+		<span data-bind="text: clickCountStagesFunc"></span>
 	    <div data-bind="text: clickCount" ></div>
         <img src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
 		<div> 

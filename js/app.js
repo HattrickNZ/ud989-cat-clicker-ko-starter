@@ -1,4 +1,45 @@
-
+var initialCats=[
+{
+	clickCount: 0,
+	name: 'Tabby',
+	imgSrc: 'img/1413379559_412a540d29_z.jpg',
+	imgAttribution: 'https://www.flickr.com/photos/big',
+	nickNames: ['nm1','nm2'],
+	clickCountStages: ['baby','infant']
+},
+{
+	clickCount: 0,
+	name: 'Tabby2',
+	imgSrc: 'img/22252709_010df3379e_z.jpg',
+	imgAttribution: 'https://www.flickr.com/photos/big',
+	nickNames: ['nm1','nm2_2'],
+	clickCountStages: ['baby','infant']
+},
+{
+	clickCount: 0,
+	name: 'Tabby3',
+	imgSrc: 'img/4154543904_6e2428c421_z.jpg',
+	imgAttribution: 'https://www.flickr.com/photos/big',
+	nickNames: ['nm1','nm2_3'],
+	clickCountStages: ['baby','infant']
+},
+{
+	clickCount: 0,
+	name: 'Tabby4',
+	imgSrc: 'img/434164568_fea0ad4013_z.jpg',
+	imgAttribution: 'https://www.flickr.com/photos/big',
+	nickNames: ['nm1','nm2_4'],
+	clickCountStages: ['baby','infant']
+},
+{
+	clickCount: 0,
+	name: 'Tabby5',
+	imgSrc: 'img/9648464288_2516b35537_z.jpg',
+	imgAttribution: 'https://www.flickr.com/photos/big',
+	nickNames: ['nm1','nm2_5'],
+	clickCountStages: ['baby','infant']
+},
+]
 
 var Cat = function(data) {
 	
@@ -21,16 +62,15 @@ var Cat = function(data) {
 
 var ViewModel = function() {
 	var self=this;
-
 	
-	this.currentCat= ko.observable(new Cat({
-		clickCount: 0,
-		name: 'Tabby',
-		imgSrc: 'img/434164568_fea0ad4013_z.jpg2',
-		imgAttribution: 'https://www.flickr.com/photos/big',
-		nickNames: ['nm1','nm2'],
-		clickCountStages: ['baby','infant']
-	}) );
+	this.catList = ko.observableArray([]);
+	
+	// create the diff cats and store them in catList
+	initialCats.forEach(function(catItem){
+		self.catList.push(new Cat(catItem));
+	});
+	
+	this.currentCat= ko.observable(this.catList()[0] );
 	
 	this.incrementCounter = function() {
 		//this.currentCat().clickCount(this.currentCat().clickCount() + 1);

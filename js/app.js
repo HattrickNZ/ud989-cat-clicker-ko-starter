@@ -70,11 +70,21 @@ var ViewModel = function() {
 		self.catList.push(new Cat(catItem));
 	});
 	
+	//show the first cat on startup
 	this.currentCat= ko.observable(this.catList()[0] );
 	
 	this.incrementCounter = function() {
 		//this.currentCat().clickCount(this.currentCat().clickCount() + 1);
 		self.currentCat().clickCount(self.currentCat().clickCount() + 1);
+	};
+	
+	this.selectCat=function(clickedCat,j,k) {
+		// listen for whcih cat is selected 
+		// change the cat in the view that was selected 
+		console.log("this",this);
+		console.log("clickedCat",clickedCat);
+		
+		self.currentCat(clickedCat)
 	};
 	
 }

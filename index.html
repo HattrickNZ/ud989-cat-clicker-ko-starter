@@ -6,8 +6,15 @@
 </head>
 <body>
 
-    <div data-bind="with: currentCat">
+	<div> 
+		<h3>CatList:</h3>
+		<ul data-bind="foreach: catList">
+			<li data-bind="text: name, click: $parent.selectCat">					
+			</li>
+		</ul>
+	<div>
 
+    <div data-bind="with: currentCat">
         <h2 data-bind="text: name"></h2>
 		<span data-bind="text: clickCountStagesFunc"></span>
 	    <div data-bind="text: clickCount" ></div>
